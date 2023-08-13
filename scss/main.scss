@@ -1,0 +1,210 @@
+$primary-color: #f3e1e1;
+$secundary-color: #ffc3a0;
+$tertiary-color: #a2c8b4;
+$quaternary-color: #ff5733;
+$primary-text-color: #4e443b;
+$font-stack: "IBM Plex Sans", sans-serif;
+$paragrahp-size: 1.5em;
+
+@mixin flexCenter($direction, $content, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $content;
+  align-items: $align;
+}
+
+@mixin buttonStyle {
+  button {
+    background: none;
+    border-style: none;
+  }
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  background-color: $primary-color;
+  font-family: $font-stack;
+}
+
+nav {
+  width: auto;
+  @include flexCenter(row, space-between, center);
+  color: $primary-text-color;
+  padding: 10px;
+  p {
+    font-size: $paragrahp-size;
+    padding-left: 30px;
+  }
+  .icons {
+    display: flex;
+    gap: 15px;
+    @include buttonStyle();
+  }
+}
+
+main {
+  background-color: $primary-color;
+}
+
+article {
+  color: $primary-text-color;
+  width: auto;
+  padding-left: 60px;
+  padding-right: 60px;
+  padding-top: 70px;
+  @include flexCenter(row, space-between, center);
+
+  .impact-section {
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+    gap: 20px;
+  }
+  h1 {
+    font-size: 3em;
+    padding: 0px;
+    margin: 0px;
+  }
+  p {
+    font-size: $paragrahp-size;
+  }
+  @include buttonStyle();
+  button {
+    width: 12vw;
+    padding: 20px;
+    background-color: $quaternary-color;
+    border-radius: 30px;
+    font-size: 1em;
+    color: white;
+  }
+  img {
+    width: 25vw;
+    border-radius: 19px;
+  }
+}
+section {
+  width: auto;
+  height: auto;
+  padding: 60px;
+
+  h2 {
+    color: $primary-text-color;
+    font-size: 2em;
+  }
+  .healthcare {
+    padding-bottom: 60px;
+    h2 {
+      font-weight: 300;
+      padding-bottom: 60px;
+    }
+    .card-section {
+      @include flexCenter(row, space-evenly, center);
+      column-gap: 200px;
+      row-gap: 80px;
+      flex-wrap: wrap;
+    }
+    .product-card {
+      width: 14vw;
+      height: 45vh;
+      background-color: $secundary-color;
+      color: $primary-text-color;
+      padding: 20px;
+      border-radius: 10px;
+      .icon {
+        display: flex;
+        justify-content: flex-end;
+        svg {
+          width: 28px;
+          height: 28px;
+        }
+      }
+    }
+    .product-image {
+      width: 100%;
+      height: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        width: 12vw;
+        height: 30vh;
+        border-radius: 6pxf;
+        object-fit: cover;
+      }
+    }
+  }
+  .furniture {
+    @extend .healthcare;
+    .product-card {
+      background-color: $tertiary-color;
+      color: white;
+    }
+  }
+}
+.about-us {
+  h2 {
+    font-weight: bold;
+    padding-bottom: 60px;
+  }
+  .mission-section {
+    @include flexCenter(row, space-evenly, center);
+    .earth {
+      width: 30vw;
+      display: flex;
+      gap: 40px;
+      padding-bottom: 30px;
+      color: #e86424;
+      img {
+        object-fit: contain;
+      }
+      p {
+        text-align: center;
+        font-size: $paragrahp-size;
+      }
+    }
+  }
+  .innovation {
+    @extend .earth;
+  }
+}
+.gallery {
+  .gallery-images {
+    @include flexCenter(row, space-between, center);
+    img {
+      width: 28vw;
+      height: 45vh;
+      object-fit: cover;
+      object-position: 5px 35%;
+      border-radius: 16px;
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+}
+.footer {
+  background-color: $quaternary-color;
+  width: 100%;
+  height: 250px;
+  h3 {
+    color: whitesmoke;
+    padding: 30px;
+    font-family: $font-stack;
+  }
+}
+.social-media {
+  .social-icons {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    font-size: 45px;
+    padding: 30px;
+    i {
+      color: #fff;
+    }
+  }
+}
+
