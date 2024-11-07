@@ -1,3 +1,21 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slideIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 body {
   margin: 0px;
   padding: 0px;
@@ -36,7 +54,7 @@ article {
   width: auto;
   padding-left: 60px;
   padding-right: 60px;
-  padding-top: 70px;
+  padding-top: 60px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -100,20 +118,28 @@ section .healthcare .card-section, section .furniture .card-section {
   flex-wrap: wrap;
 }
 section .healthcare .product-card, section .furniture .product-card {
-  width: 14vw;
+  width: 20vw;
   height: 45vh;
   background-color: #ffc3a0;
   color: #4e443b;
   padding: 20px;
   border-radius: 10px;
+  animation: fadeIn 1s ease-in-out;
 }
 section .healthcare .product-card .icon, section .furniture .product-card .icon {
   display: flex;
   justify-content: flex-end;
+  margin-bottom: 10px;
+  animation: slideIn 0.8s ease-in-out;
 }
 section .healthcare .product-card .icon svg, section .furniture .product-card .icon svg {
   width: 28px;
   height: 28px;
+  fill: none;
+  transition: fill 0.3s ease-in-out;
+}
+section .healthcare .product-card .icon:hover svg, section .furniture .product-card .icon:hover svg {
+  fill: red;
 }
 section .healthcare .product-image, section .furniture .product-image {
   width: 100%;
@@ -123,9 +149,9 @@ section .healthcare .product-image, section .furniture .product-image {
   align-items: center;
 }
 section .healthcare .product-image img, section .furniture .product-image img {
-  width: 12vw;
+  width: 14vw;
   height: 30vh;
-  border-radius: 6pxf;
+  border-radius: 6px;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -181,11 +207,12 @@ section .furniture .product-card {
 .footer {
   background-color: #ff5733;
   width: 100%;
-  height: 250px;
+  height: auto;
+  padding: 10px 0;
 }
 .footer h3 {
-  color: whitesmoke;
-  padding: 30px;
+  padding: 5px;
+  font-size: 1em;
   font-family: "IBM Plex Sans", sans-serif;
 }
 
@@ -193,10 +220,9 @@ section .furniture .product-card {
   list-style: none;
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 50px;
-  font-size: 45px;
-  padding: 30px;
+  gap: 30px;
+  font-size: 3em;
+  padding: 5px;
 }
 .social-media .social-icons i {
   color: #fff;

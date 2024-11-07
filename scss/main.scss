@@ -1,3 +1,4 @@
+// Variables
 $primary-color: #f3e1e1;
 $secundary-color: #ffc3a0;
 $tertiary-color: #a2c8b4;
@@ -6,6 +7,7 @@ $primary-text-color: #4e443b;
 $font-stack: "IBM Plex Sans", sans-serif;
 $paragrahp-size: 1.5em;
 
+// Mixins
 @mixin flexCenter($direction, $content, $align) {
   display: flex;
   flex-direction: $direction;
@@ -20,6 +22,28 @@ $paragrahp-size: 1.5em;
   }
 }
 
+// Animations
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+// Base styles
 body {
   margin: 0px;
   padding: 0px;
@@ -27,6 +51,7 @@ body {
   font-family: $font-stack;
 }
 
+// Navigation styles
 nav {
   width: auto;
   @include flexCenter(row, space-between, center);
@@ -43,16 +68,18 @@ nav {
   }
 }
 
+// Main content styles
 main {
   background-color: $primary-color;
 }
 
+// Article styles
 article {
   color: $primary-text-color;
   width: auto;
   padding-left: 60px;
   padding-right: 60px;
-  padding-top: 70px;
+  padding-top: 60px;
   @include flexCenter(row, space-between, center);
 
   .impact-section {
@@ -83,6 +110,8 @@ article {
     border-radius: 19px;
   }
 }
+
+// Section styles
 section {
   width: auto;
   height: auto;
@@ -105,18 +134,26 @@ section {
       flex-wrap: wrap;
     }
     .product-card {
-      width: 14vw;
+      width: 20vw;
       height: 45vh;
       background-color: $secundary-color;
       color: $primary-text-color;
       padding: 20px;
       border-radius: 10px;
+      animation: fadeIn 1s ease-in-out;
       .icon {
         display: flex;
         justify-content: flex-end;
+        margin-bottom: 10px;
+        animation: slideIn 0.8s ease-in-out;
         svg {
           width: 28px;
           height: 28px;
+          fill: none;
+          transition: fill 0.3s ease-in-out;
+        }
+        &:hover svg {
+          fill: red;
         }
       }
     }
@@ -127,9 +164,9 @@ section {
       justify-content: center;
       align-items: center;
       img {
-        width: 12vw;
+        width: 14vw;
         height: 30vh;
-        border-radius: 6pxf;
+        border-radius: 6px;
         object-fit: cover;
       }
     }
@@ -142,6 +179,8 @@ section {
     }
   }
 }
+
+// About Us section styles
 .about-us {
   h2 {
     font-weight: bold;
@@ -168,6 +207,8 @@ section {
     @extend .earth;
   }
 }
+
+// Gallery styles
 .gallery {
   .gallery-images {
     @include flexCenter(row, space-between, center);
@@ -183,28 +224,31 @@ section {
     }
   }
 }
+
+// Footer styles
 .footer {
   background-color: $quaternary-color;
   width: 100%;
-  height: 250px;
+  height: auto;
+  padding: 10px 0; 
   h3 {
-    color: whitesmoke;
-    padding: 30px;
+    padding: 5px;
+    font-size: 1em;
     font-family: $font-stack;
   }
 }
+
+// Social Media styles
 .social-media {
   .social-icons {
     list-style: none;
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 50px;
-    font-size: 45px;
-    padding: 30px;
+    gap: 30px;
+    font-size: 3em;
+    padding: 5px;
     i {
       color: #fff;
     }
   }
 }
-
